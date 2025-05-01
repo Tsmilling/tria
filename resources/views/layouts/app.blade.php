@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ $menuDashboard ?? '' }}">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('balik')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -59,7 +59,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{routes('user')}}">
                     <i class="fas fa-user"></i>
                     <span>Data User</span></a>
             </li>
