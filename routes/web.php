@@ -15,5 +15,5 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('balik');
 Route::get('login', [AuthController::class, 
 'login'])->name ('login');
 
-Route::get('user', [UserController::class, 
+Route::get('user', [UserController::class,
 'index'])->name ('user');

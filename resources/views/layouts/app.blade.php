@@ -58,8 +58,8 @@
 
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="{{routes('user')}}">
+            <li class="nav-item {{ $menuAdminUser ?? '' }}">
+                <a class="nav-link" href="{{route('user')}}">
                     <i class="fas fa-user"></i>
                     <span>Data User</span></a>
             </li>
