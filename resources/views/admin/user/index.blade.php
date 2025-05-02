@@ -9,7 +9,7 @@
     <div class="card">
         <div class="cadr-header d-flex flex-warp justify-content-center justify-content-xl-between">
         <div>
-            <a href="#" class="btn btn-primary" style="margin-left: 10px;"">
+            <a href="{{ route('userCreate')}}" class="btn btn-primary" style="margin-left: 10px;">
             <i class="fas fa-plus mr2"></i>
                 Tambah Data</a>
         </div>   
@@ -38,32 +38,53 @@
                                             <th>Jabatan</th>
                                             <th>Status</th>
                                             <th>
-                                                <i class="fas fa-cog"
+                                                <i class="fas fa-cog">
                                             </th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                        @foreach ($user as $item)
                                         <tr>
-                                            <td class="text-center">1</td>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
+                                            <td class="text-center">{{ $loop->iteration}}</td>
+                                            <td>{{$item->nama}}</td>
+
                                             <td class="text-center">
-                                            <span class="badge badge-dark badge-pill">Admin</span>
-                                            </td>
-                                            
-                                            <td class="text-center">
-                                            <span class="badge badge-danger badge-pill">Belum di Tugaskan</span>
+                                                <span class="badge badge-primary">{{$item->email}}</span>
+                                                                                        
                                             </td>
                                             <td class="text-center">
-                                                <a href="#" class="btn btn-warning btn-sm">
+                                                @if ($item->jabatan == 'Admin')
+                                                    <span class="badde badge-dark badge-pill">
+                                                        {{$item->jabatan}}
+                                                    </span>
+                                                    @else
+                                
+                                                    <span class="badde badge-info badge-pill">
+                                                        {{$item->jabatan}}
+                                                    </span>
+                                                @endif
+                                                </td>
+                                            <td>@if ($item->is_tugas == false)
+                                                    <span class="badde badge-danger badge-pill">
+                                                    Belum Ditugaskan
+                                                    </span>
+                                                    @else
+                                
+                                                    <span class="badde badge-success badge-pill">
+                                                    Sudah Ditugaskan
+                                                    </span>
+                                                @endif</td>
+                                            <td class="text-center">
+                                                <a href="#" class="btn btn-sm btn-warning ">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="#" class="btn btn-danger btn-sm">
+                                                <a href="#" class="btn btn-sm btn-danger">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

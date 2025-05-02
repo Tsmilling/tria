@@ -28,6 +28,9 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard'
 //User
 Route::get('user', [UserController::class,
 'index'])->name ('user');
+Route::get('user/create', [UserController::class,
+'create'])->name ('userCreate');
+
 //Tugas
 Route::get('tugas', [TugasController::class,'index'])->name
 ('tugas');
