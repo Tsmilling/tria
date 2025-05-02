@@ -46,18 +46,31 @@
                                         
                                         </h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="POST" action="{{ route('loginProses')}}">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
+                                            <input type="email" class="form-control form-control-user @error('email')
+                                            is-invalid @enderror"
 
-                                                placeholder="Masukkan Email" name="email">
+                                                placeholder="Masukkan Email" name="email" value="{{ old('email')}}">
+                                                @error('email')
+                                                <small class="text-danger">
+                                                    {{ $message}}
+                                                </small>
+                                                @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input type="password" class="form-control form-control-user @error('password')
+                                            is-invalid @enderror"
                                              placeholder="masukkan Password" name="password">
+                                             @error('password')
+                                                <small class="text-danger">
+                                                    {{ $message}}
+                                                </small>
+                                                @enderror
                                         </div>
                                         <div>
-                                        <buttion type="submit" href="#" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
 </div>
@@ -85,6 +98,27 @@
     <script src="{{ asset('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('sbadmin2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('sbadmin2/js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+    
+    @session('success')
+    <script>
+        Swal.fire({
+  title: "Sukses",
+  text: "session('success')",
+  icon: "success"
+});
+    </script>
+    @endsession
+
+    @session('error')
+    <script>
+        Swal.fire({
+  title: "Gagal Login",
+  text: "{{session('error')}}",
+  icon: "error"
+});
+    </script>
+    @endsession
 
 </body>
 

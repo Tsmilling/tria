@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ $menuDashboard ?? '' }}">
-                <a class="nav-link" href="{{route('balik')}}">
+                <a class="nav-link" href="{{route('dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -142,7 +142,7 @@
                                 </a>
 
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="{{route('logout')}}" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -214,9 +214,30 @@
 
     <script src="{{ asset('sbadmin2/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('sbadmin2/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
-    <!-- Page level custom scripts -->
     <script src="{{ asset('sbadmin2/js/demo/datatables-demo.js') }}"></script>
+    <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+
+    @session('success')
+    <script>
+        Swal.fire({
+  title: "Sukses",
+  text: "session('success')",
+  icon: "success"
+});
+    </script>
+    @endsession
+
+    @session('error')
+    <script>
+        Swal.fire({
+  title: "Gagal Login",
+  text: "{{session('error')}}",
+  icon: "error"
+});
+    </script>
+    @endsession
+
+    
 
 </body>
 
