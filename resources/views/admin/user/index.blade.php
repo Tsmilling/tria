@@ -32,6 +32,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="bg-primary text-white">
                                         <tr class="text-center">
+                                            <th>No</th>
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Jabatan</th>
@@ -44,6 +45,7 @@
 
                                     <tbody>
                                         <tr>
+                                            <td class="text-center">1</td>
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
                                             <td class="text-center">

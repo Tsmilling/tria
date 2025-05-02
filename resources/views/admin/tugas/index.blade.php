@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 class="h3 mb-4 text-gray-800">
-        <i class="fas fa-user-alt mr-2"></i>
+        <i class="fas fa-tasks mr-2"></i>
         {{$title}}
     </h1>
 
@@ -32,10 +32,11 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="bg-primary text-white">
                                         <tr class="text-center">
+                                            <th>No</th>
                                             <th>Nama</th>
-                                            <th>Email</th>
-                                            <th>Jabatan</th>
-                                            <th>Status</th>
+                                            <th>Tugas</th>
+                                            <th>tanggal Mulai</th>
+                                            <th>tanggal Selesai</th>
                                             <th>
                                                 <i class="fas fa-cog"
                                             </th>
@@ -44,14 +45,15 @@
 
                                     <tbody>
                                         <tr>
+                                            <td class="text-center">1</td>
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
                                             <td class="text-center">
-                                            <span class="badge badge-dark badge-pill">Admin</span>
+                                            <span class="badge badge-info badge-pill">01-01-2025</span>
                                             </td>
                                             
                                             <td class="text-center">
-                                            <span class="badge badge-danger badge-pill">Belum di Tugaskan</span>
+                                            <span class="badge badge-info badge-pill">01-01-2025</span>
                                             </td>
                                             <td class="text-center">
                                                 <a href="#" class="btn btn-warning btn-sm">
