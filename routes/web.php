@@ -36,7 +36,7 @@ Route::get('user/edit/{id}', [UserController::class,
 'edit'])->name ('userEdit');
 Route::post('user/update/{id}', [UserController::class,
 'update'])->name ('userUpdate');
-Route::delete('user/destroy/{id}', [UserController::class,
+Route::get('user/destroy/{id}', [UserController::class,
 'destroy'])->name ('userDestroy');
 
 //Tugas
