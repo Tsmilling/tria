@@ -2,19 +2,20 @@
 
 namespace App\Exports;
 
-use App\Models\User;
+use App\Models\Tugas;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
-class UserExport implements FromView
+class TugasExport implements FromView
 {
     public function view(): View
     {
         $data = array(
-            'user' => User::orderBy('jabatan','asc')->get(),
+            'tugas' => Tugas::with('user')->get(),
             'tanggal' => now()->format('d-m-Y'),
             'jam' => now()->format('H.i.s'),
         );
-        return view('admin/user/excel',$data);
+        return view('admin/tugas/excel',$data);
     }
 }
+

@@ -1,18 +1,9 @@
-<table>
+<h1 align="center">DATA USER</h1>
+<h3 align="center">Tanggal {{$tanggal}}</h3>
+<h3 align="center">Pukul {{$jam}}</h3>
+<hr>
+<table width="100%" border="1px" style="border-collapse:collapse;">
     <thead>
-    <tr>
-        <th colspan="5" align="center">Data User</th>
-    </tr>
-    <tr>
-        <th colspan="5" align="center">
-           Tanggal : {{$tanggal}}
-        </th>
-    </tr>
-    <tr>
-        <th colspan="5" align="center">
-           Pukul : {{$jam}}
-        </th>
-    </tr>
     <tr>
         <th width="20" align="center">No</th>
         <th width="20" align="center">Name</th>

@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email');
-            $table->enum('jabatan',['Admin','Karyawan']);
+            $table->enum('jabatan', ['Admin','Karyawan']);
+            
             $table->string('password');
             $table->boolean('is_tugas')->default(false);
             $table->rememberToken();

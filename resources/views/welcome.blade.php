@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Tria | Beranda</title>
+  <title>Manajemen Tugas | beranda</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{{ asset('enno/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ asset('enno/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{asset('enno/assets/img/favicon.png')}}" rel="icon">
+  <link href="{{asset('enno/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -18,12 +18,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('enno/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('enno/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('enno/assets/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('enno/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('enno/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('enno/assets/css/main.css') }}" rel="stylesheet">
+  <link href="{{asset('enno/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{asset('enno/assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{asset('enno/assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{asset('enno/assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{asset('enno/assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{{asset('enno/assets/css/main.css')}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: eNno
@@ -34,7 +36,7 @@
   ======================================================== -->
 </head>
 
-<body class="#">
+<body class="index-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
@@ -42,19 +44,24 @@
       <a href="#" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1 class="sitename">yaya</h1>
+        <h1 class="sitename">Manajemen Tugas</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Beranda</a></li>
-          <li><a href="#about">Tentang Kita</a></li>
-          <li><a href="#contact">kontak</a></li>
+          <li><a href="#about">Tentang kita</a></li>
+          <li><a href="#contact">Kontak</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+      @auth
+      <a class="btn-getstarted" href="{{route('dashboard')}}">Dashboard</a>
+      @else
       <a class="btn-getstarted" href="{{route('login')}}">Login</a>
+      @endauth
+      
 
     </div>
   </header>
@@ -67,37 +74,35 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-            <h1>yaya</h1>
-            <p>Aplikasi Management Tugas</p>
+            <h1>Manajemen Tugas</h1>
+            <p>Aplikasi Manajemen Tugas</p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">Login</a>
+              @auth 
+              <a href="{{route('dashboard')}}" class="btn-get-started">Dashboard</a>
+              @else
+              <a href="{{route('dashboard')}}" class="btn-get-started">Login</a>
+              @endauth
+              
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
-            <img src="{{ asset('enno/assets/img/hero-img.png') }}" class="img-fluid animated" alt="">
+            <img src="{{asset('enno/assets/img/hero-img.png')}}" class="img-fluid animated" alt="">
           </div>
         </div>
       </div>
 
     </section><!-- /Hero Section -->
 
-         <div class="container">
-
-      </div>
-
-      </div>
-
-</section><!-- /Featured Services Section -->
-
+    <!-- Featured Services Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <span>Tentang Kita<br></span>
-        <h2>Tentang Kita</h2>
-        <p>Ikuti kata hati sendiri-sendiri jangan ikuti orang lain</p>
+        <span>Tentang kita<br></span>
+        <h2>Tentang kita</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -127,8 +132,10 @@
 
     </section><!-- /About Section -->
 
+    <!-- Call To Action Section -->
 
- 
+    <!-- Team Section -->
+
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -169,12 +176,10 @@
                   <p>info@example.com</p>
                 </div>
               </div><!-- End Info Item -->
-
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2426.9573960748858!2d113.71974125071632!3d-8.1583359103337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6701119b7%3A0x48b11dbdd7f0b910!2sGedung%20Kesehatan%20Politeknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1746041135905!5m2!1sid!2sid" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+             
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22517.641443826928!2d113.71627641161693!3d-8.166074990283255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b617d8f623%3A0xf6c4437632474338!2sState%20Polytechnic%20of%20Jember!5e0!3m2!1sen!2sid!4v1746079359662!5m2!1sen!2sid" frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
-
-
 
         </div>
 
@@ -185,7 +190,6 @@
   </main>
 
   <footer id="footer" class="footer">
-
 
 
     <div class="container copyright text-center mt-4">
@@ -208,15 +212,17 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('enno/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('enno/assets/vendor/php-email-form/validate.js') }}"></script>
-  <script src="{{ asset('enno/assets/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('enno/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('enno/assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-  <script src="{{ asset('enno/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-  <script src="{{ asset('enno/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('enno/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('enno/assets/js/main.js') }}"></script>
+  <script src="{{asset('enno/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{asset('enno/assets/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{asset('enno/assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{asset('enno/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  <script src="{{asset('enno/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+  <script src="{{asset('enno/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+  <script src="{{asset('enno/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{asset('enno/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+
+  <!-- Main JS File -->
+  <script src="{{asset('enno/assets/js/main.js')}}"></script>
 
 </body>
 

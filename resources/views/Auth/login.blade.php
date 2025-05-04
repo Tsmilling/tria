@@ -8,18 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <title>yaya | Login</title>
+    <title>Manajemen tugas | Login</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="{{asset('sbadmin2/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('sbadmin2/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{asset('sbadmin2/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -30,57 +29,49 @@
         <!-- Outer Row -->
         <div class="row justify-content-center">
 
-            <div class="col-xl-6 col-lg-6 col-md-3">
+            <div class="col-xl-6 col-lg-7 col-md-9">
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-
-                            <div class="col-12">
+                            <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">
-                                        <i class="fas fa-tasks"></i>
-                                        Yaya | Login
-                                        
+                                            <i class="fas fa-tasks mr-2"></i>
+                                            Manajemen Tugas | Login
                                         </h1>
                                     </div>
-                                    <form class="user" method="POST" action="{{ route('loginProses')}}">
-                                        @csrf
+                                    <form class="user" method="POST" action="{{route('loginProses')}}">
+                                        @csrf 
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user @error('email')
-                                            is-invalid @enderror"
-
-                                                placeholder="Masukkan Email" name="email" value="{{ old('email')}}">
+                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror"
+                                                placeholder="Masukkan email" name="email" value="{{old('email')}}">
                                                 @error('email')
-                                                <small class="text-danger">
-                                                    {{ $message}}
-                                                </small>
+                                                <small class="text-danger">{{$message}}</small>
                                                 @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user @error('password')
-                                            is-invalid @enderror"
-                                             placeholder="masukkan Password" name="password">
-                                             @error('password')
-                                                <small class="text-danger">
-                                                    {{ $message}}
-                                                </small>
+                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
+                                                 placeholder="Masukkan Password" name="password">
+                                                 @error('password')
+                                                <small class="text-danger">{{$message}}</small>
                                                 @enderror
                                         </div>
-                                        <div>
+                                        
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
-</div>
-                                    
+                                        </button>
+                                        
                                     </form>
                                     <hr>
-                                   <small class="text-center">
-                                    Kembali ke Beranda?
-                                    <a href="{{ route('welcome') }}">Klik Disini</a>
-                                   </small>
+                                   <div class="text-center">
+                                        <small>
+                                        kembali ke beranda?
+                                        <a href="{{route('welcome')}}">klik disini</a>
+                                        </small>
+                                   </div>
                                 </div>
                             </div>
                         </div>
@@ -94,31 +85,32 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('sbadmin2/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('sbadmin2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('sbadmin2/js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
-    
-    @session('success')
-    <script>
-        Swal.fire({
-  title: "Sukses",
-  text: "{{session('success')}}",
-  icon: "success"
-});
-    </script>
-    @endsession
+    <script src="{{asset('sbadmin2/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-    @session('error')
-    <script>
-        Swal.fire({
-  title: "Gagal Login",
-  text: "{{session('error')}}",
-  icon: "error"
-});
+    <!-- Core plugin JavaScript-->
+    <script src="{{asset('sbadmin2/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="{{asset('sbadmin2/js/sb-admin-2.min.js')}}"></script>
+    <script src="{{asset('/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
+    @session('success')
+    <script>Swal.fire({
+        title: "sukses",
+        text: "{{session ('success')}}",
+        icon: "success"
+        });
     </script>
     @endsession
+    @session('error')
+    <script>Swal.fire({
+        title: "gagal",
+        text: "{{session ('error')}}",
+        icon: "error"
+        });
+    </script>
+    @endsession
+   
 
 </body>
 
