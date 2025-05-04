@@ -13,10 +13,10 @@ modal-dialog-scrollable">
       <div class="modal-body text-left">
       <div class="row">
             <div class="col-6">
-                Email
+                Nama
             </div>
             :
-                {{ $item->email}}
+                {{ $item->nama}}
 
                 </span>
         </div>
@@ -73,9 +73,13 @@ modal-dialog-scrollable">
         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
             <i class="fas fa-times"></i>
             Tutup</button>
-        <a href="{{ route('userDestroy',$item->id) }}" type="button" class="btn btn-danger btn-sm">
+            <form action="{{ route('userDestroy', $item->id)}}" method="post">
+              @csrf
+              @method('delete')
+        <button type="submit" class="btn btn-danger btn-sm">
         <i class="fas fa-trash"></i>
         Hapus</button>
+        </form>
       </div>
     </div>
   </div>

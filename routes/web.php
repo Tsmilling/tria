@@ -36,8 +36,10 @@ Route::get('user/edit/{id}', [UserController::class,
 'edit'])->name ('userEdit');
 Route::post('user/update/{id}', [UserController::class,
 'update'])->name ('userUpdate');
-Route::get('user/destroy/{id}', [UserController::class,
+Route::delete('user/destroy/{id}', [UserController::class,
 'destroy'])->name ('userDestroy');
+Route::get('user/excel', [UserController::class,
+'excel'])->name ('userExcel');
 
 //Tugas
 Route::get('tugas', [TugasController::class,'index'])->name

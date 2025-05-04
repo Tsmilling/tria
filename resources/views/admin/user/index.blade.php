@@ -15,7 +15,7 @@
         </div>   
 
         <div>
-            <a href="#" class="btn btn-success" style="margin-left: 10px;"">
+            <a href="{{ route('userExcel') }}" class="btn btn-success" style="margin-left: 10px;"">
             <i class="fas fa-file-excel mr2"></i>
                 Excel</a>
             <a href="#" class="btn btn-danger" style="margin-left: 10px;"">
@@ -65,21 +65,23 @@
                                                     </span>
                                                 @endif
                                                 </td>
-                                            <td>@if ($item->is_tugas == false)
+                                            <td>
+                                                @if ($item->is_tugas == false)
                                                     <span class="badde badge-danger badge-pill">
-                                                    Belum Ditugaskan
+                                                    {{$item->is_tugas}}
                                                     </span>
                                                     @else
                                 
                                                     <span class="badde badge-success badge-pill">
-                                                    Sudah Ditugaskan
+                                                    {{$item->is_tugas}}
                                                     </span>
-                                                @endif</td>
+                                                @endif
+                                            </td>
                                             <td class="text-center">
                                                 <a href="{{route('userEdit', $item->id)}}" class="btn btn-sm btn-warning ">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <button href="{route('userEdit', $item->id)}}" class="btn btn-sm btn-danger"
+                                                <button href="#" class="btn btn-sm btn-danger"
                                                 data-toggle="modal" data-target="#exampleModal{{$item->id}}">
                                                     <i class="fas fa-trash"></i>
                                             </button>

@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Exports\UserExport;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
     public function index(){
         $data = array(
-            'title'     => 'Data User',
-            'menuAdminUser'     => 'active',
-            'user'      => User::orderBy('jabatan','asc')->get(),
+            'title'                 => 'Data User',
+            'menuAdminUser'         => 'active',
+            'user'                  => User::orderBy('jabatan','asc')->get(),
         );
         return view('admin/user/index',$data);
     }
@@ -98,5 +100,10 @@ class UserController extends Controller
 
         return redirect()->route('user')->with('success',
         'Data Berhasil Di Hapus');
+    }
+
+    public function excel(){
+        $filename = now()->format('d-m-Y_H.i.s');
+        return Excel::download(new UserExport, 'DataUser_'.$filename.'.xlsx');
     }
 }
